@@ -1,0 +1,120 @@
+/* src/index.css */
+/* Tailwind v4 使用 @import 引入全部基础样式 */
+@import "tailwindcss";
+
+/* 隐藏纵向滚动条但保留滚动能力 */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar { /* Chrome / Safari */
+  display: none;
+}
+
+/* 美化横向滚动条 */
+.gantt-container::-webkit-scrollbar {
+  height: 8px;
+}
+.gantt-container::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 4px;
+}
+.gantt-container::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.8);
+  border-radius: 4px;
+}
+.gantt-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 1);
+}
+
+/* 搜索高亮动画 */
+@keyframes searchHighlight {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5); }
+  50% { box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.8); }
+}
+
+.search-highlight {
+  animation: searchHighlight 2s ease-in-out infinite;
+}
+
+/* 甘特图虚线样式 - 用于进行中任务的未来部分 */
+.gantt-future-dashed {
+  border: 2px dashed rgba(255, 255, 255, 0.4) !important;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 255, 255, 0.05) 8px,
+    rgba(255, 255, 255, 0.05) 16px
+  );
+  opacity: 0.5;
+}
+
+/* 任务状态颜色样式 */
+/* 未开始任务 - 蓝色 */
+.task-planned {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* 进行中任务 - 琥珀色/黄色 */
+.task-ongoing {
+  background: linear-gradient(135deg, #C67400 0%, #A85F00 100%);
+  box-shadow: 0 2px 8px rgba(198, 116, 0, 0.4);
+}
+
+/* 进行中且有延期风险 - 红色 */
+.task-ongoing-risk {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.5);
+  animation: riskPulse 2s ease-in-out infinite;
+}
+
+/* 已完成任务 - 绿色 */
+.task-done {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* 被阻塞任务 - 灰色 */
+.task-blocked {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%) !important;
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.3) !important;
+}
+
+/* 延期风险脉动动画 */
+@keyframes riskPulse {
+  0%, 100% {
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* 火箭发射动画 - 从底部向上飞到目标位置 */
+@keyframes rocket-launch {
+  0% {
+    transform: translate(var(--start-x), var(--start-y));
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--target-x), var(--target-y));
+    opacity: 1;
+  }
+}
+
+/* 粒子爆炸动画 - 从中心向四周扩散并逐渐消失 */
+@keyframes particle-explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--velocity-x), var(--velocity-y)) scale(0.3);
+    opacity: 0;
+  }
+}

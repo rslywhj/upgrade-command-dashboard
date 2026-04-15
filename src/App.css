@@ -1,0 +1,116 @@
+/* 甘特图相关样式 */
+.gantt-container {
+  scroll-behavior: smooth;
+}
+
+.gantt-task-bar {
+  transition: all 0.2s ease-in-out;
+}
+
+.gantt-task-bar:hover {
+  transform: translateY(-1px);
+  z-index: 10;
+}
+
+/* 任务条的渐变效果 */
+.task-done {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.task-ongoing {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.task-ongoing-risk {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.task-planned {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.task-blocked {
+  background: linear-gradient(135deg, #64748b, #475569);
+  box-shadow: 0 2px 8px rgba(100, 116, 139, 0.3);
+  opacity: 0.7;
+  border: 2px dashed rgba(245, 158, 11, 0.5) !important;
+}
+
+/* 现在线的增强效果 */
+.now-line {
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
+/* 阶段进度条动画 */
+.phase-progress {
+  transition: width 0.8s ease-in-out;
+}
+
+/* 工具按钮悬浮效果 */
+.tool-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.tool-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 依赖状态指示器 */
+.dependency-indicator {
+  animation: dependencyBlink 2s ease-in-out infinite;
+}
+
+@keyframes dependencyBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
