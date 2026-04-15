@@ -1329,22 +1329,18 @@ export default function App() {
     XLSX.writeFile(workbook, `IOA升级任务计划模板_${Date.now()}.xlsx`);
     setLogs((l) => [{ time: getCurrentTimeISO(), action: "下载模板", detail: "Excel模板已下载" }, ...l]);
   };
-  const resetTaskStatus = () => {
-    if (!window.confirm("确定要清空所有任务的执行状态吗？此操作将重置所有任务为未开始状态，并清空操作日志。")) {
+  const clearData = () => {
+    if (!window.confirm("确定要清空所有任务数据和操作日志吗？此操作不可恢复。")) {
       return;
     }
-    setTasks((prev) => prev.map((t) => ({
-      ...t,
-      status: "planned",
-      actualStart: undefined,
-      actualEnd: undefined,
-      actualMinutes: undefined,
-    })));
+    setTasks([]);
+    setLogs([]);
     riskLoggedRef.current.clear();
     earlyLoggedRef.current.clear();
+    notifiedTasksRef.current.clear();
     autoCongratsTriggeredRef.current = false;
     setShowCongrats(false);
-    setLogs([]);
+    setSelectedTask(null);
   };
 
   const phases = Array.from(new Set(scheduled.map((t) => t.phase)));
@@ -1604,8 +1600,8 @@ return (
               <button className="px-3 py-1 bg-slate-700 rounded-xl hover:bg-slate-600 transition-colors" onClick={exportJSON}>
                 导出JSON
               </button>
-              <button className="px-3 py-1 bg-amber-600 rounded-xl hover:bg-amber-700 transition-colors" onClick={resetTaskStatus}>
-                清空状态
+              <button className="px-3 py-1 bg-amber-600 rounded-xl hover:bg-amber-700 transition-colors" onClick={clearData}>
+                清空数据
               </button>
 			  <button
 				className={`px-3 py-1 rounded-xl ${showCongrats ? "bg-emerald-600" : "bg-slate-700"}`}
