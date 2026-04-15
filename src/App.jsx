@@ -2677,7 +2677,7 @@ return (
           {/* 标题 */}
           <div className="mb-6">
             <h1 className="text-5xl font-extrabold bg-gradient-to-r from-yellow-300 via-yellow-400 to-red-400 bg-clip-text text-transparent whitespace-nowrap drop-shadow-lg">
-              🎉祝贺集团公司核智枢ERP 1.5升级成功！
+              🎉祝贺{projectTitle || "升级任务"}成功！
             </h1>
           </div>
 

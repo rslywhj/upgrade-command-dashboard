@@ -6,10 +6,11 @@
 
 | 路径 | 说明 |
 | --- | --- |
-| `README.md` | 项目入口说明，包含功能概览、启动方式、目录结构和使用流程 |
+| `README.md` | 项目入口说明，包含功能概览、演示截图、启动方式、目录结构和使用流程 |
 | `docs/PROJECT_STRUCTURE.md` | 当前文件，梳理文档目录、代码结构、数据模型和维护建议 |
 | `docs/DEPLOYMENT.md` | Windows / 麒麟 Linux 下基于 Nginx 的部署与更新说明 |
 | `docs/CHANGELOG.md` | Markdown 版更新记录 |
+| `docs/assets/screenshots/` | README 使用的系统演示截图 |
 
 ## 代码目录
 
@@ -24,9 +25,16 @@ src/
 public/
 ├── celebration-bg.png  # 庆功页背景图
 └── vite.svg            # Vite 默认静态资源
+
+docs/
+├── PROJECT_STRUCTURE.md
+├── DEPLOYMENT.md
+├── CHANGELOG.md
+└── assets/
+    └── screenshots/    # README 系统演示截图
 ```
 
-根目录中的 `debug-time.html`、`test-date-parsing.html`、`fireworks3.html` 属于调试或效果验证页面，不参与 Vite 应用入口构建。生产应用入口为 `index.html` 和 `src/main.jsx`。
+生产应用入口为 `index.html` 和 `src/main.jsx`。根目录只保留源码入口、配置文件和项目级说明，截图等文档资源统一放在 `docs/assets/` 下。
 
 ## App.jsx 结构
 

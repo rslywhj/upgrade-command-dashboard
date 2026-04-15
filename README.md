@@ -12,6 +12,24 @@
 - 现场辅助：支持演示时间、庆功页、操作记录折叠、已完成任务超时效果开关。
 - 本地持久化：任务、日志、窗口时间和开关项保存在浏览器 `localStorage`。
 
+## 系统演示截图
+
+### 大屏总览
+
+![升级指挥大屏总览](./docs/assets/screenshots/屏幕截图_3-2-2026_172519_dashboard.dougge.top.png)
+
+### 配置与任务计划
+
+![升级指挥大屏配置与任务计划](./docs/assets/screenshots/屏幕截图_3-2-2026_172548_dashboard.dougge.top.png)
+
+### 甘特图与任务状态
+
+![升级指挥大屏甘特图与任务状态](./docs/assets/screenshots/屏幕截图_3-2-2026_172935_dashboard.dougge.top.png)
+
+### 全屏与现场展示
+
+![升级指挥大屏全屏与现场展示](./docs/assets/screenshots/屏幕截图_3-2-2026_173117_dashboard.dougge.top.png)
+
 ## 技术栈
 
 - React 19
@@ -52,7 +70,8 @@ ioa-wall/
 ├── docs/                         # Markdown 说明文档
 │   ├── PROJECT_STRUCTURE.md       # 文档目录与代码结构说明
 │   ├── DEPLOYMENT.md              # Windows / 麒麟 Linux 部署说明
-│   └── CHANGELOG.md               # 更新记录
+│   ├── CHANGELOG.md               # 更新记录
+│   └── assets/screenshots/        # 系统演示截图
 ├── public/
 │   ├── celebration-bg.png         # 庆功页背景图
 │   └── vite.svg                   # Vite 默认静态资源
